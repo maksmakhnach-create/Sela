@@ -1,0 +1,37 @@
+---
+description: Locked SELA UI choices — do not revert without explicit user request
+alwaysApply: true
+---
+
+# SELA — зафиксированные UI-решения
+
+Не откатывать и не заменять эти элементы при рефакторинге, если пользователь явно не попросил иное.
+
+## Главная (Hero)
+
+- Левый блок: компонент `SelaHeroLogo` — крупное **SELA** с кофейными зёрнами (корона над S, зёрна у A) и слоганом в 3 строки.
+- Правый блок: `WildberriesHero` с логотипом `/images/wildberries-logo-nobg.png`, ссылкой на `https://www.wildberries.ru/seller/3924979`, кнопкой «нажми тут» и анимацией.
+
+## О компании (AboutSection)
+
+- Слева — только **Яндекс.Карта** (без фото под ней).
+- Координаты: `ll=23.816902,53.639929`, zoom ~19.
+- Ссылка: `https://yandex.by/maps/10274/grodno/house/ZkoYfgZmTU0CQFtpfXp1cXxjYw==/?ll=23.816902%2C53.639929&z=19.83`
+- Под картой текст-ссылка: **«Мы находимся тут: Ивана Лебедева 6»** (не кнопка поверх карты).
+
+## Каталог
+
+- Фон страницы: тёмный `bg-primary` (не светлый).
+- Панель фильтров: класс **`catalog-filter-bg`** (`#E1D0B0` в `globals.css`), не `glass` и не `glass-card`.
+- `GlassSelect`: тёмные подписи `text-primary`, белые поля выбора на бежевой панели.
+
+## Бегущая строка (HeroProductMarquee)
+
+- Компонент `HeroProductMarquee` внизу hero-секции.
+- Фон: `.hero-marquee-bar` — `rgba(255, 232, 189, 0.9)` (#FFE8BD, 90% непрозрачности).
+- На десктопе широкая (`max-w ~1520px`), при наведении останавливается (`.marquee-pause:hover`).
+- Только названия товаров, карточки как в каталоге (бежевый квадрат + выступающая пачка).
+
+## Цвет фильтра
+
+Определён в `src/app/globals.css` как `.catalog-filter-bg { background-color: #e1d0b0; }` — использовать этот класс, не Tailwind-токен `bg-filter-beige` (может не попасть в сборку).

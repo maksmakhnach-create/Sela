@@ -32,6 +32,9 @@ const initialFormData: FormData = {
 
 const UNP_ERROR = "Исправьте УНП: должно быть 9 цифр";
 
+const CONTACT_API =
+  process.env.NEXT_PUBLIC_CONTACT_API ?? "/api/contact";
+
 function isValidUnp(value: string): boolean {
   return /^\d{9}$/.test(value);
 }
@@ -83,7 +86,7 @@ export default function FeedbackForm({ onSubmitted, size = "default" }: Feedback
     setLoading(true);
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(CONTACT_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

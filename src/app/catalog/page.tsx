@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import CatalogProductCard from "@/components/CatalogProductCard";
 import CatalogBackground from "@/components/catalog/CatalogBackground";
@@ -42,12 +43,23 @@ const typeOptions = [
   })),
 ];
 
-export default function CatalogPage() {
+function isValidType(value: string): value is keyof typeof typeLabels {
+  return value in typeLabels;
+}
+
+function CatalogContent() {
+  const searchParams = useSearchParams();
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("");
   const [currentPage, setCurrentPage] = useState(1);
   const [filtersOpen, setFiltersOpen] = useState(false);
+
+  useEffect(() => {
+    const type = searchParams.get("type") ?? "";
+    setSelectedType(isValidType(type) ? type : "");
+    setCurrentPage(1);
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -222,5 +234,17 @@ export default function CatalogPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CatalogPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24" />
+      }
+    >
+      <CatalogContent />
+    </Suspense>
   );
 }

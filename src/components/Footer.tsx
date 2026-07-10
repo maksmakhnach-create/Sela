@@ -9,14 +9,13 @@ const companyLinks = [
 
 const productLinks = [
   { href: "/catalog", label: "Каталог" },
-  { href: "/catalog", label: "Кофейные напитки" },
-  { href: "/catalog", label: "Растворимый кофе" },
+  { href: "/catalog?type=ground", label: "Молотый кофе" },
+  { href: "/catalog?type=beans", label: "Зерновой кофе" },
 ];
 
-const socialLinks = [
-  { href: "#", label: "Instagram" },
-  { href: "#", label: "Telegram" },
-  { href: "#", label: "VK" },
+const presenceLinks = [
+  { href: "https://www.instagram.com/sela_coffe/", label: "Instagram" },
+  { href: "https://www.wildberries.ru/seller/3924979", label: "Wildberries" },
 ];
 
 export default function Footer() {
@@ -85,13 +84,15 @@ export default function Footer() {
 
           <div>
             <h4 className="font-display font-semibold text-primary mb-6">
-              Социальные сети
+              Мы есть тут
             </h4>
             <ul className="space-y-3">
-              {socialLinks.map((link) => (
+              {presenceLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-sm text-text-muted hover:text-caramel-orange transition-colors duration-300"
                   >
                     {link.label}

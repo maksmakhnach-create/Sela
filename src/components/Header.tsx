@@ -71,7 +71,7 @@ export default function Header() {
             </nav>
 
             <Link
-              href="/catalog"
+              href="/order"
               className="px-5 py-2.5 text-sm font-semibold rounded-premium bg-orange-gradient text-white hover:shadow-glow-orange hover:scale-[1.02] transition-all duration-300 whitespace-nowrap"
             >
               Заказать
@@ -121,7 +121,7 @@ export default function Header() {
                 </Link>
               ))}
               <Link
-                href="/catalog"
+                href="/order"
                 onClick={() => setMenuOpen(false)}
                 className="mt-2 text-center px-8 py-3.5 font-semibold rounded-premium bg-orange-gradient text-white touch-target"
               >

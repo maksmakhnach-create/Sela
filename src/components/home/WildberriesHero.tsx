@@ -48,8 +48,8 @@ export default function WildberriesHero() {
         />
       </div>
 
-      <div className="mt-6 sm:mt-8 w-full px-8 sm:px-10 py-4 sm:py-5 rounded-[2rem] border-2 border-[#B56A2E]/45 bg-white/55 backdrop-blur-sm">
-        <p className="text-base sm:text-xl font-semibold tracking-[0.2em] uppercase text-[#8B6347]">
+      <div className="mt-5 sm:mt-8 w-full px-4 sm:px-10 py-3.5 sm:py-5 rounded-[1.5rem] sm:rounded-[2rem] border-2 border-[#B56A2E]/45 bg-white/55 backdrop-blur-sm">
+        <p className="text-xs sm:text-xl font-semibold tracking-[0.08em] sm:tracking-[0.2em] uppercase text-[#8B6347] leading-snug">
           мы есть на WILDBERRIES
         </p>
       </div>
@@ -75,7 +75,7 @@ export default function WildberriesHero() {
         target="_blank"
         rel="noopener noreferrer"
         animate={pulse}
-        className="mt-4 sm:mt-5 inline-flex items-center justify-center min-w-[220px] px-10 sm:px-12 py-4 sm:py-5 rounded-full bg-[#B56A2E] text-white font-semibold text-lg sm:text-xl tracking-wide shadow-[0_6px_24px_rgba(181,106,46,0.3)] hover:brightness-110 transition-[filter] duration-300"
+        className="mt-4 sm:mt-5 inline-flex items-center justify-center w-full max-w-[min(100%,320px)] sm:max-w-none sm:min-w-[220px] px-8 sm:px-12 py-3.5 sm:py-5 rounded-full bg-[#B56A2E] text-white font-semibold text-base sm:text-xl tracking-wide shadow-[0_6px_24px_rgba(181,106,46,0.3)] hover:brightness-110 transition-[filter] duration-300 touch-target"
       >
         нажми тут
       </motion.a>

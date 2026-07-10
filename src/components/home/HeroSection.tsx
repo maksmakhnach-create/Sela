@@ -49,8 +49,8 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px pt-28 md:pt-32">
-        <div className="relative grid lg:grid-cols-2 gap-10 lg:gap-4 items-center w-full min-h-[calc(100dvh-14rem)] lg:min-h-[calc(100dvh-11rem)]">
+      <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px pt-24 sm:pt-28 md:pt-32 pb-6 sm:pb-0">
+        <div className="relative grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-4 items-center w-full min-h-0 lg:min-h-[calc(100dvh-11rem)]">
           {/* ============ LEFT COLUMN: Text content ============ */}
           <div className="flex flex-col max-w-3xl">
             <SelaHeroLogo />
@@ -69,7 +69,7 @@ export default function HeroSection() {
 
             {/* Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full"
               variants={slideUp}
               initial="hidden"
               animate="visible"
@@ -77,13 +77,13 @@ export default function HeroSection() {
             >
               <Link
                 href="/catalog"
-                className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#B56A2E] text-white font-semibold rounded-premium overflow-hidden transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_32px_rgba(181,106,46,0.3)] hover:scale-[1.03] active:scale-[0.98]"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-[#B56A2E] text-white font-semibold rounded-premium overflow-hidden transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_32px_rgba(181,106,46,0.3)] hover:scale-[1.03] active:scale-[0.98] touch-target"
               >
                 <span className="relative z-10">Каталог продукции</span>
               </Link>
               <Link
                 href="/contacts"
-                className="inline-flex items-center justify-center px-8 py-4 border border-[#B56A2E]/40 text-[#B56A2E] font-medium rounded-premium bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[#B56A2E]/10 hover:border-[#B56A2E] hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-[#B56A2E]/40 text-[#B56A2E] font-medium rounded-premium bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[#B56A2E]/10 hover:border-[#B56A2E] hover:scale-[1.03] active:scale-[0.98] touch-target"
               >
                 Связаться с нами
               </Link>
@@ -92,7 +92,7 @@ export default function HeroSection() {
 
           {/* ============ RIGHT COLUMN: Wildberries ============ */}
           <motion.div
-            className="relative flex items-center justify-center w-full min-h-[420px] sm:min-h-[520px] lg:min-h-[calc(100dvh-10rem)] overflow-visible"
+            className="relative flex items-center justify-center w-full min-h-[280px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[calc(100dvh-10rem)] overflow-visible -mx-1 sm:mx-0"
             variants={scaleIn}
             initial="hidden"
             animate="visible"

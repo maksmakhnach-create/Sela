@@ -1,18 +1,47 @@
 "use client";
 
-import { useState, FormEvent } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import CatalogBackground from "@/components/catalog/CatalogBackground";
+import FeedbackForm from "@/components/FeedbackForm";
+
+const socialLinks = [
+  {
+    name: "Wildberries",
+    logo: "/images/social/wildberries.png",
+    href: "https://www.wildberries.ru/seller/3924979",
+    button: "Открыть на Wildberries",
+    logoClass: "w-full h-full object-cover rounded-2xl",
+    buttonClass:
+      "bg-gradient-to-r from-[#7B2D8E] to-[#CB11AB] hover:from-[#8E35A3] hover:to-[#E015BC] text-white shadow-[0_8px_24px_rgba(123,45,142,0.28)]",
+  },
+  {
+    name: "Instagram",
+    logo: "/images/social/instagram.png",
+    href: "https://www.instagram.com/sela_coffe/",
+    button: "Перейти в Instagram",
+    logoClass: "w-11 h-11 sm:w-12 sm:h-12 object-contain",
+    buttonClass:
+      "bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:brightness-110 text-white shadow-[0_8px_24px_rgba(221,42,123,0.28)]",
+  },
+  {
+    name: "TikTok",
+    logo: "/images/social/tiktok.png",
+    href: "https://www.tiktok.com/@sela_coffe",
+    button: "Смотреть в TikTok",
+    logoClass: "w-11 h-11 sm:w-12 sm:h-12 object-contain",
+    buttonClass:
+      "bg-[#111111] hover:bg-[#1a1a1a] text-white border border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.25)]",
+  },
+];
+
+const YANDEX_MAP_URL =
+  "https://yandex.by/maps/10274/grodno/?ll=23.817020%2C53.639920&mode=routes&rtext=53.639923%2C23.816774&rtt=auto&ruri=&z=19.65";
+
+const YANDEX_MAP_EMBED =
+  "https://yandex.ru/map-widget/v1/?ll=23.817020%2C53.639920&z=19&pt=23.816774%2C53.639923%2Cpm2rdm";
 
 export default function ContactsPage() {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       <CatalogBackground />
@@ -30,99 +59,18 @@ export default function ContactsPage() {
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-20">
-          <AnimatedSection>
-            <div className="bg-white rounded-card p-5 sm:p-8 lg:p-10 shadow-soft">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 lg:items-stretch">
+          <AnimatedSection className="h-full">
+            <div className="bg-white rounded-card p-5 sm:p-8 lg:p-10 shadow-soft h-full">
               <h2 className="font-display text-2xl text-primary mb-8">
                 Форма обратной связи
               </h2>
-
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
-                >
-                  <div className="w-16 h-16 bg-beige rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg
-                      className="w-8 h-8 text-accent"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="font-display text-xl text-primary mb-2">
-                    Спасибо за обращение!
-                  </h3>
-                  <p className="text-primary/60">
-                    Мы свяжемся с вами в ближайшее время.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="text-sm font-medium text-primary/70 mb-2 block">
-                      Имя
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      className="w-full px-4 py-3.5 bg-beige/50 border border-beige rounded-xl text-base text-primary focus:outline-none focus:border-accent transition-colors"
-                      placeholder="Ваше имя"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-primary/70 mb-2 block">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      className="w-full px-4 py-3 bg-beige/50 border border-beige rounded-xl text-primary focus:outline-none focus:border-accent transition-colors"
-                      placeholder="email@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-primary/70 mb-2 block">
-                      Телефон
-                    </label>
-                    <input
-                      type="tel"
-                      className="w-full px-4 py-3 bg-beige/50 border border-beige rounded-xl text-primary focus:outline-none focus:border-accent transition-colors"
-                      placeholder="+375 (__) ___-__-__"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-primary/70 mb-2 block">
-                      Сообщение
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 bg-beige/50 border border-beige rounded-xl text-primary focus:outline-none focus:border-accent transition-colors resize-none"
-                      placeholder="Ваше сообщение..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-3.5 sm:py-4 bg-primary text-white font-medium rounded-2xl hover:bg-accent active:bg-accent transition-colors duration-300 touch-target"
-                  >
-                    Отправить
-                  </button>
-                </form>
-              )}
+              <FeedbackForm />
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.1}>
-            <div className="space-y-8">
+          <AnimatedSection delay={0.1} className="h-full">
+            <div className="flex flex-col gap-8 h-full">
               <div className="bg-white rounded-card p-5 sm:p-8 shadow-soft">
                 <h3 className="font-display text-xl text-primary mb-6">
                   Контактная информация
@@ -208,12 +156,63 @@ export default function ContactsPage() {
                       <p className="text-primary font-medium">
                         Гродно, ул. Ивана Лебедева, 6
                       </p>
-                      <p className="text-sm text-primary/50 mt-1">
-                        Пн–Пт: 9:00–20:00, Сб–Вс: 10:00–18:00
-                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div className="bg-white rounded-card p-5 sm:p-8 shadow-soft">
+                <h3 className="font-display text-xl text-primary mb-6">Мы есть тут</h3>
+                <div className="space-y-5">
+                  {socialLinks.map((social) => (
+                    <div
+                      key={social.name}
+                      className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-beige/35 border border-beige/80"
+                    >
+                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0 shadow-soft">
+                        <Image
+                          src={social.logo}
+                          alt={social.name}
+                          width={64}
+                          height={64}
+                          className={social.logoClass}
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm text-primary/50 mb-2.5">{social.name}</p>
+                        <a
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center justify-center w-full px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] touch-target ${social.buttonClass}`}
+                        >
+                          {social.button}
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-card p-5 sm:p-8 shadow-soft lg:flex-1 lg:flex lg:flex-col lg:min-h-0">
+                <div className="relative aspect-[16/10] lg:aspect-auto lg:flex-1 lg:min-h-[140px] rounded-premium overflow-hidden bg-white/40">
+                  <iframe
+                    src={YANDEX_MAP_EMBED}
+                    title="Карта — проспект Ивана Лебедева, 6, Гродно"
+                    className="absolute inset-0 w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+                <a
+                  href={YANDEX_MAP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 block text-center lg:text-left text-primary font-semibold text-base hover:text-accent transition-colors"
+                >
+                  Мы находимся тут: Ивана Лебедева 6
+                </a>
               </div>
             </div>
           </AnimatedSection>

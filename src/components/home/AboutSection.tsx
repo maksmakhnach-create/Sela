@@ -1,21 +1,25 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const stats = [
-  { value: 10, suffix: "+", label: "лет опыта" },
-  { value: 500, suffix: "+", label: "клиентов" },
-  { value: 50, suffix: "+", label: "товаров" },
-  { value: 100, suffix: "%", label: "контроль качества" },
+const topStats = [
+  { value: 370000, suffix: "+", label: "клиентов" },
+  { value: 95, suffix: "+", label: "товаров" },
 ];
 
+const qualityStat = {
+  value: 100,
+  suffix: "%",
+  label: "контроль качества",
+};
+
 const YANDEX_MAP_URL =
-  "https://yandex.by/maps/10274/grodno/house/ZkoYfgZmTU0CQFtpfXp1cXxjYw==/?ll=23.816902%2C53.639929&z=19.83";
+  "https://yandex.by/maps/10274/grodno/?ll=23.817020%2C53.639920&mode=routes&rtext=53.639923%2C23.816774&rtt=auto&ruri=&z=19.65";
 
 const YANDEX_MAP_EMBED =
-  "https://yandex.ru/map-widget/v1/?ll=23.816902%2C53.639929&z=19&pt=23.816902%2C53.639929%2Cpm2rdm";
+  "https://yandex.ru/map-widget/v1/?ll=23.817020%2C53.639920&z=19&pt=23.816774%2C53.639923%2Cpm2rdm";
 
 function AnimatedCounter({
   value,
@@ -46,10 +50,96 @@ function AnimatedCounter({
   }, [inView, value]);
 
   return (
-    <span className="font-display font-extrabold text-3xl sm:text-4xl bg-orange-gradient bg-clip-text text-transparent tabular-nums">
-      {count}
+    <span className="font-display font-extrabold text-2xl sm:text-3xl lg:text-4xl bg-orange-gradient bg-clip-text text-transparent tabular-nums">
+      {count.toLocaleString("ru-RU")}
       {suffix}
     </span>
+  );
+}
+
+function BeanIcon({ size = 24, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size * 1.45}
+      viewBox="0 0 24 36"
+      fill="none"
+      aria-hidden
+      className={className}
+    >
+      <ellipse
+        cx="12"
+        cy="18"
+        rx="9.5"
+        ry="14.5"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M12 4.5 C10.2 18 13.8 31.5 12 31.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FloatingBeans({ mirror = false }: { mirror?: boolean }) {
+  const reduceMotion = useReducedMotion();
+  const beans = [
+    { size: 30, rotate: -22, delay: 0 },
+    { size: 22, rotate: 18, delay: 0.4 },
+  ];
+
+  return (
+    <div
+      className={`flex items-end gap-1 sm:gap-2 text-accent/85 ${
+        mirror ? "flex-row-reverse" : ""
+      }`}
+      aria-hidden
+    >
+      {beans.map((bean, index) => (
+        <motion.div
+          key={index}
+          animate={
+            reduceMotion
+              ? undefined
+              : {
+                  y: [0, -8, 0],
+                  rotate: [bean.rotate, bean.rotate + 6, bean.rotate],
+                }
+          }
+          transition={{
+            duration: 2.8 + index * 0.4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: bean.delay,
+          }}
+        >
+          <BeanIcon size={bean.size} className={`${mirror ? "-scale-x-100" : ""}`} />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+function StatCard({
+  value,
+  suffix,
+  label,
+  inView,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  inView: boolean;
+}) {
+  return (
+    <div className="glass-card rounded-card p-5 sm:p-6 hover:shadow-glow transition-shadow duration-400 h-full">
+      <AnimatedCounter value={value} suffix={suffix} inView={inView} />
+      <p className="mt-2 text-sm text-text-muted">{label}</p>
+    </div>
   );
 }
 
@@ -90,24 +180,32 @@ export default function AboutSection() {
               О компании SELA
             </h2>
             <p className="text-text-muted text-base sm:text-lg leading-relaxed mb-10">
-              Мы поставляем качественный растворимый кофе и кофейные напитки для
-              магазинов, маркетплейсов, кофеен и бизнеса.
+              Мы поставляем качественные товары для магазинов, маркетплейсов,
+              кофеен и бизнеса. Надежные поставки, широкий ассортимент, выгодные
+              условия сотрудничества и высокий уровень сервиса — всё для
+              успешного развития вашего бизнеса.
             </p>
 
-            <div ref={statsRef} className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="glass-card rounded-card p-5 sm:p-6 hover:shadow-glow transition-shadow duration-400"
-                >
-                  <AnimatedCounter
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    inView={inView}
-                  />
-                  <p className="mt-2 text-sm text-text-muted">{stat.label}</p>
+            <div ref={statsRef} className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                {topStats.map((stat) => (
+                  <StatCard key={stat.label} {...stat} inView={inView} />
+                ))}
+              </div>
+
+              <div className="grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-4 items-center">
+                <div className="flex justify-end pr-1 sm:pr-2">
+                  <FloatingBeans />
                 </div>
-              ))}
+
+                <div className="w-[min(100%,220px)] sm:w-[min(100%,260px)]">
+                  <StatCard {...qualityStat} inView={inView} />
+                </div>
+
+                <div className="flex justify-start pl-1 sm:pl-2">
+                  <FloatingBeans mirror />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const reasons = [
   "Контроль качества",
-  "Собственное производство",
   "Работаем по всей стране",
   "Индивидуальные условия",
   "Надёжные поставки",
@@ -14,7 +13,7 @@ const reasons = [
 
 export default function WhyChooseSection() {
   return (
-    <AnimatedSection className="py-20 md:py-32 bg-background">
+    <AnimatedSection className="pt-10 md:pt-14 pb-20 md:pb-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
         <div className="text-center mb-14 md:mb-20">
           <span className="text-caramel-orange text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">

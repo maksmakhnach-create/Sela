@@ -26,7 +26,7 @@ export default function CTASection() {
               href="/contacts"
               className="inline-flex items-center justify-center px-10 py-4 bg-white text-coffee font-bold rounded-premium transition-all duration-400 hover:shadow-hover hover:scale-[1.05] active:scale-[0.98]"
             >
-              Получить предложение
+              Заполнить форму
             </Link>
           </div>
         </motion.div>

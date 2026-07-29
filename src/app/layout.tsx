@@ -3,6 +3,7 @@ import { Inter, Manrope, Plus_Jakarta_Sans, Bebas_Neue } from "next/font/google"
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getSiteUrl } from "@/lib/site-url";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -36,6 +37,7 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: "SELA — Премиальный кофе для бизнеса",
   description:
     "Оптовые поставки растворимого кофе и кофейных напитков высокого качества по всей стране.",

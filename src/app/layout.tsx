@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: "SELA — Премиальный кофе для бизнеса",
   description:
-    "Оптовые поставки растворимого кофе и кофейных напитков высокого качества по всей стране.",
+    "Оптовые поставки растворимого кофе и кофейных напитков высокого качества по РБ.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/site-url";
+import { SEO_LANDING_SLUGS } from "@/data/seo-landings";
 
 const pages: Array<{
   path: string;
@@ -13,6 +14,11 @@ const pages: Array<{
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/contacts", changeFrequency: "monthly", priority: 0.8 },
   { path: "/order", changeFrequency: "monthly", priority: 0.7 },
+  ...SEO_LANDING_SLUGS.map((slug) => ({
+    path: `/${slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

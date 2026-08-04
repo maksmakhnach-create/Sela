@@ -80,10 +80,12 @@ export default function SelaHeroLogo() {
         </div>
       </div>
 
-      <h1 className="mt-3 sm:mt-4 font-display font-extrabold text-primary leading-[1.02] text-[clamp(1.75rem,4.2vw,3.25rem)]">
-        <span className="block">Премиальный</span>
-        <span className="block">кофе для</span>
-        <span className="block">вашего бизнеса</span>
+      <h1
+        className="mt-4 sm:mt-5 font-display font-extrabold text-primary leading-[1.05] text-[clamp(1.85rem,4.8vw,3.5rem)] text-balance drop-shadow-[0_2px_0_rgba(61,43,31,0.06)]"
+      >
+        <span className="bg-gradient-to-r from-[#3D2B1F] via-[#5E3D2A] to-[#B56A2E] bg-clip-text text-transparent">
+          Кофе оптом в Беларуси
+        </span>
       </h1>
     </motion.div>
   );

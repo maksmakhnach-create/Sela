@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const brands = [
-  { name: "illy", logo: "/brands/illy.png" },
-  { name: "Swisso Kaffee", logo: "/brands/swisso-kaffee.png" },
-  { name: "Tchibo", logo: "/brands/tchibo.png" },
-  { name: "Segafredo Zanetti", logo: "/brands/segafredo.png" },
-  { name: "Mövenpick", logo: "/brands/movenpick.png" },
-  { name: "Melitta", logo: "/brands/melitta.png" },
-  { name: "Lucaffé", logo: "/brands/lucaffe.png" },
-  { name: "Lavazza", logo: "/brands/lavazza.png" },
-  { name: "King George", logo: "/brands/king-george.png" },
-  { name: "Kimbo", logo: "/brands/kimbo.png" },
-  { name: "Jacobs", logo: "/brands/jacobs.png" },
-  { name: "Gevalia", logo: "/brands/gevalia.png" },
-  { name: "Dallmayr", logo: "/brands/dallmayr.png" },
-  { name: "Caffè Vergnano", logo: "/brands/vergnano.png" },
-  { name: "Biorepair", logo: "/brands/biorepair.png" },
+  { name: "illy", logo: "/brands/illy-coffee-logo.webp" },
+  { name: "Swisso Kaffee", logo: "/brands/swisso-kaffee-logo.webp" },
+  { name: "Tchibo", logo: "/brands/tchibo-logo.webp" },
+  { name: "Segafredo Zanetti", logo: "/brands/segafredo-zanetti-logo.webp" },
+  { name: "Mövenpick", logo: "/brands/movenpick-logo.webp" },
+  { name: "Melitta", logo: "/brands/melitta-logo.webp" },
+  { name: "Lucaffé", logo: "/brands/lucaffe-logo.webp" },
+  { name: "Lavazza", logo: "/brands/lavazza-logo.webp" },
+  { name: "King George", logo: "/brands/king-george-logo.webp" },
+  { name: "Kimbo", logo: "/brands/kimbo-logo.webp" },
+  { name: "Jacobs", logo: "/brands/jacobs-logo.webp" },
+  { name: "Gevalia", logo: "/brands/gevalia-logo.webp" },
+  { name: "Dallmayr", logo: "/brands/dallmayr-logo.webp" },
+  { name: "Caffè Vergnano", logo: "/brands/vergnano-logo.webp" },
+  { name: "Biorepair", logo: "/brands/biorepair-logo.webp" },
 ];
 
 export default function BrandsSection() {
@@ -30,6 +30,10 @@ export default function BrandsSection() {
           <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary text-balance">
             Бренды представленные у нас в магазине
           </h2>
+          <p className="mt-5 text-text-muted text-base sm:text-lg max-w-3xl mx-auto text-balance">
+            Европейские марки кофе оптом в Беларуси — для магазинов, кофеен и
+            ресторанов.
+          </p>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6">

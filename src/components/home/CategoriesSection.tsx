@@ -10,25 +10,25 @@ const categories = [
     title: "Кофейные напитки",
     href: "/catalog",
     image:
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80",
+      "/images/categories/coffee-beans.webp",
   },
   {
     title: "Растворимый чай",
     href: "/catalog",
     image:
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=800&q=80",
+      "/images/categories/tea.webp",
   },
   {
     title: "Новинки",
     href: "/catalog",
     image:
-      "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80",
+      "/images/categories/new-products.webp",
   },
   {
     title: "Хиты продаж",
     href: "/catalog",
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80",
+      "/images/categories/bestsellers.webp",
   },
 ];
 

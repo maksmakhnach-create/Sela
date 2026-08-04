@@ -22,7 +22,7 @@ export interface SeoLanding {
 }
 
 export const SEO_LANDING_SLUGS = [
-  "coffee-optom",
+  "coffee-belarus",
   "coffee-optom-belarus",
   "coffee-dlya-kofeen",
   "coffee-dlya-restoranov",
@@ -39,7 +39,10 @@ const baseLinks = {
   contacts: { href: "/contacts", label: "Контакты и заявка" },
   order: { href: "/order", label: "Оформить заказ" },
   about: { href: "/about", label: "О компании SELA" },
-  coffeeOptom: { href: "/coffee-optom", label: "Кофе оптом" },
+  coffeeBelarus: {
+    href: "/coffee-belarus",
+    label: "Кофе оптом для бизнеса в Беларуси",
+  },
   coffeeOptomBelarus: {
     href: "/coffee-optom-belarus",
     label: "Кофе оптом в Беларуси",
@@ -59,12 +62,12 @@ const baseLinks = {
 };
 
 export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
-  "coffee-optom": {
-    slug: "coffee-optom",
-    title: "Кофе оптом — поставки для бизнеса | SELA, Гродно",
+  "coffee-belarus": {
+    slug: "coffee-belarus",
+    title: "Кофе оптом для бизнеса в Беларуси | SELA, Гродно",
     description:
-      "Кофе оптом от SELA: растворимый кофе, зерновой и молотый, кофейные напитки. Оптовые цены, стабильные поставки по РБ. Оставьте заявку.",
-    h1: "Кофе оптом для бизнеса",
+      "Кофе оптом для бизнеса в Беларуси от SELA: растворимый, зерновой и молотый кофе, кофейные напитки. Оптовые цены, поставки по РБ. Оставьте заявку.",
+    h1: "Кофе оптом для бизнеса в Беларуси",
     lead:
       "SELA поставляет кофе и кофейные напитки оптом для магазинов, кафе, ресторанов и корпоративных клиентов по всей Беларуси.",
     seoText: [
@@ -143,7 +146,7 @@ export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
       },
     ],
     internalLinks: [
-      baseLinks.coffeeOptom,
+      baseLinks.coffeeBelarus,
       baseLinks.coffeeKofeen,
       baseLinks.coffeeRestaurants,
       baseLinks.about,
@@ -284,7 +287,7 @@ export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
       },
     ],
     internalLinks: [
-      baseLinks.coffeeOptom,
+      baseLinks.coffeeBelarus,
       baseLinks.coffeeOptomBelarus,
       baseLinks.catalog,
       baseLinks.order,
@@ -380,7 +383,7 @@ export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
     internalLinks: [
       baseLinks.espressoBlend,
       baseLinks.coffeeKofeen,
-      baseLinks.coffeeOptom,
+      baseLinks.coffeeBelarus,
       baseLinks.catalog,
       baseLinks.contacts,
     ],

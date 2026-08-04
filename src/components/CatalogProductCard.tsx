@@ -43,6 +43,8 @@ export default function CatalogProductCard({
                   ? `${product.name} ${product.titleSubline}`
                   : product.name
               }
+              title={product.titleSubline ? `${product.name} ${product.titleSubline}` : product.name}
+              loading="lazy"
               fill
               className={
                 imageFit === "contain"

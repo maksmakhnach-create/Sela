@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const reasons = [
-  "Контроль качества",
-  "Работаем по всей стране",
-  "Индивидуальные условия",
-  "Надёжные поставки",
-  "Быстрая логистика",
+  "Контроль качества кофе",
+  "Поставки кофе оптом по Беларуси",
+  "Индивидуальные оптовые условия",
+  "Надёжные поставки для бизнеса",
+  "Быстрая логистика по РБ",
 ];
 
 export default function WhyChooseSection() {
@@ -19,9 +19,13 @@ export default function WhyChooseSection() {
           <span className="text-caramel-orange text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
             Наши сильные стороны
           </span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary">
-            Почему выбирают нас
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary text-balance">
+            Почему заказывают кофе оптом в Беларуси у SELA
           </h2>
+          <p className="mt-5 text-text-muted text-base sm:text-lg max-w-2xl mx-auto text-balance">
+            Европейские бренды, стабильные поставки и гибкие условия для магазинов,
+            кафе, ресторанов и корпоративных клиентов.
+          </p>
         </div>
 
         <div className="flex flex-col gap-4">

@@ -124,8 +124,8 @@ const stats = [
 ];
 
 const showcaseImages = {
-  partner: "/images/about/coffee-cafe.jpg",
-  mission: "/images/about/coffee-cup.jpg",
+  partner: "/images/about/coffee-cafe-office.webp",
+  mission: "/images/about/coffee-cup-hero.webp",
 };
 
 const stagger = {

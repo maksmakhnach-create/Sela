@@ -38,9 +38,12 @@ const bebas = Bebas_Neue({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
-  title: "SELA — Премиальный кофе для бизнеса",
+  title: {
+    default: "SELA — кофе и напитки для бизнеса",
+    template: "%s | SELA",
+  },
   description:
-    "Оптовые поставки растворимого кофе и кофейных напитков высокого качества по РБ.",
+    "Оптовые поставки кофе и кофейных напитков в Беларуси для бизнеса.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",

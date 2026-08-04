@@ -3,11 +3,13 @@ import Logo from "@/components/Logo";
 
 const companyLinks = [
   { href: "/about", label: "О компании" },
+  { href: "/blog", label: "Блог" },
   { href: "/contacts", label: "Контакты" },
   { href: "/", label: "Главная" },
 ];
 
 const productLinks = [
+  { href: "/coffee-belarus", label: "Кофе оптом в Беларуси" },
   { href: "/catalog", label: "Каталог" },
   { href: "/catalog?type=ground", label: "Молотый кофе" },
   { href: "/catalog?type=beans", label: "Зерновой кофе" },

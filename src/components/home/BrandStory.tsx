@@ -11,7 +11,7 @@ export default function BrandStory() {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
           <div className="relative aspect-[4/3] rounded-[24px] overflow-hidden shadow-card">
             <Image
-              src="https://images.unsplash.com/photo-1442512595335-e89e73853f31?w=800&q=80"
+              src="/images/brand-story/coffee-hero.webp"
               alt="Кофейная плантация"
               fill
               className="object-cover"

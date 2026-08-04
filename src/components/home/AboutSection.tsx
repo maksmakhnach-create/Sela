@@ -176,14 +176,19 @@ export default function AboutSection() {
             <span className="text-caramel-orange text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
               О нас
             </span>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary mb-6">
-              О компании SELA
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary mb-6 text-balance">
+              Кофе оптом в Беларуси от SELA
             </h2>
+            <p className="text-text-muted text-base sm:text-lg leading-relaxed mb-6">
+              SELA — надёжный поставщик кофе оптом в Беларуси для магазинов,
+              маркетплейсов, кофеен и ресторанов. Поставляем зерновой, молотый и
+              растворимый кофе, кофейные напитки и капучино с доставкой по всей
+              Республике Беларусь.
+            </p>
             <p className="text-text-muted text-base sm:text-lg leading-relaxed mb-10">
-              Мы поставляем качественные товары для магазинов, маркетплейсов,
-              кофеен и бизнеса. Надежные поставки, широкий ассортимент, выгодные
-              условия сотрудничества и высокий уровень сервиса — всё для
-              успешного развития вашего бизнеса.
+              Надёжные поставки, широкий ассортимент европейских брендов, выгодные
+              оптовые условия и высокий уровень сервиса — всё для успешного
+              развития вашего бизнеса.
             </p>
 
             <div ref={statsRef} className="space-y-4">

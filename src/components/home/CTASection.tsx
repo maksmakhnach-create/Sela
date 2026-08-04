@@ -19,15 +19,27 @@ export default function CTASection() {
           </div>
 
           <div className="relative z-10">
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-8 text-balance">
-              Начните сотрудничество с SELA уже сегодня
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 text-balance">
+              Закажите кофе оптом в Беларуси
             </h2>
+            <p className="text-white/90 text-base sm:text-lg mb-8 max-w-2xl mx-auto text-balance">
+              Оставьте заявку — менеджер SELA подберёт ассортимент и рассчитает
+              оптовую цену с доставкой по РБ.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href="/contacts"
               className="inline-flex items-center justify-center px-10 py-4 bg-white text-coffee font-bold rounded-premium transition-all duration-400 hover:shadow-hover hover:scale-[1.05] active:scale-[0.98]"
             >
               Заполнить форму
             </Link>
+            <Link
+              href="/coffee-belarus"
+              className="inline-flex items-center justify-center px-10 py-4 bg-white/15 text-white font-semibold rounded-premium border border-white/30 transition-all duration-400 hover:bg-white/25 hover:scale-[1.05] active:scale-[0.98]"
+            >
+              Кофе оптом в Беларуси
+            </Link>
+            </div>
           </div>
         </motion.div>
       </div>

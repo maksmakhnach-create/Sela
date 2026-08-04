@@ -63,10 +63,10 @@ export default function HeroProductMarquee() {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.8 }}
-      className="relative z-10 w-full px-3 sm:px-4 lg:px-6 safe-px -mt-2 sm:mt-0 lg:-mt-8 pb-6 sm:pb-8"
+      className="relative z-10 w-full px-3 sm:px-4 lg:px-6 safe-px mt-2 sm:mt-3 pb-6 sm:pb-8"
     >
       <div className="w-full max-w-none lg:max-w-[min(100%,1520px)] mx-auto rounded-2xl sm:rounded-[1.75rem] hero-marquee-bar backdrop-blur-sm border border-primary/10 shadow-[0_8px_28px_rgba(61,43,31,0.1)] overflow-hidden">
-        <div className="relative overflow-hidden py-1.5 sm:py-2 marquee-pause">
+        <div className="relative overflow-hidden py-2.5 sm:py-3.5 marquee-pause">
           <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-r from-[rgba(255,232,189,0.95)] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-l from-[rgba(255,232,189,0.95)] to-transparent z-10 pointer-events-none" />
 

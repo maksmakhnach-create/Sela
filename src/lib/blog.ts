@@ -57,6 +57,7 @@ function parsePostFile(fileName: string): BlogPost {
     popular: Boolean(data.popular),
     faq: data.faq as BlogPostMeta["faq"],
     relatedSlugs: (data.relatedSlugs as string[]) || [],
+    layout: (data.layout as BlogPostMeta["layout"]) || "lifestyle",
     content,
     readingTime: calculateReadingTime(content),
     headings: extractHeadings(content),

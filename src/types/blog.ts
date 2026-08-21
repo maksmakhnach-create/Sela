@@ -16,6 +16,7 @@ export interface BlogPostMeta {
   popular?: boolean;
   faq?: BlogFaqItem[];
   relatedSlugs?: string[];
+  layout?: "lifestyle" | "business";
 }
 
 export interface BlogHeading {

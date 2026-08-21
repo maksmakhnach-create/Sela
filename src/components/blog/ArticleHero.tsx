@@ -10,6 +10,7 @@ interface ArticleHeroProps {
   date: string;
   readingTime: number;
   category: string;
+  layout?: "lifestyle" | "business";
 }
 
 function formatDate(date: string) {
@@ -28,27 +29,55 @@ export default function ArticleHero({
   date,
   readingTime,
   category,
+  layout = "lifestyle",
 }: ArticleHeroProps) {
+  const isBusiness = layout === "business";
+
   return (
-    <header className="relative min-h-[440px] sm:min-h-[500px] md:min-h-[560px] max-h-[85vh] flex items-end overflow-hidden">
+    <header
+      className={`relative flex items-end overflow-hidden ${
+        isBusiness
+          ? "min-h-[400px] sm:min-h-[460px] md:min-h-[520px] max-h-[80vh] border-b-4 border-caramel-orange/70"
+          : "min-h-[440px] sm:min-h-[500px] md:min-h-[560px] max-h-[85vh]"
+      }`}
+    >
       <Image
         src={image}
         alt={imageAlt}
         title={title}
         fill
         priority
-        className="object-cover object-[62%_center] scale-105"
+        className={`object-cover ${
+          isBusiness
+            ? "object-center"
+            : "object-[62%_center] scale-105"
+        }`}
         sizes="100vw"
       />
 
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-primary/88 via-primary/55 to-primary/15"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-primary/55 via-transparent to-black/10"
-        aria-hidden
-      />
+      {isBusiness ? (
+        <>
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-primary/92 via-primary/70 to-caramel-orange/25"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-primary/65 via-primary/20 to-transparent"
+            aria-hidden
+          />
+        </>
+      ) : (
+        <>
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-primary/88 via-primary/55 to-primary/15"
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-primary/55 via-transparent to-black/10"
+            aria-hidden
+          />
+        </>
+      )}
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px pt-28 md:pt-32 pb-10 md:pb-14">
         <nav
@@ -66,7 +95,13 @@ export default function ArticleHero({
           <span className="text-white/90 line-clamp-1">{title}</span>
         </nav>
 
-        <h1 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] text-white mb-4 md:mb-5 text-balance max-w-4xl leading-tight">
+        <h1
+          className={`font-display font-bold text-white mb-4 md:mb-5 text-balance leading-tight ${
+            isBusiness
+              ? "text-3xl sm:text-4xl md:text-5xl max-w-5xl"
+              : "text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] max-w-4xl"
+          }`}
+        >
           {title}
         </h1>
 

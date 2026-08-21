@@ -33,6 +33,7 @@ export default function BlogArticleContent({
           date={post.date}
           readingTime={post.readingTime}
           category={post.category}
+          layout={post.layout}
         />
 
         <div className="bg-white">
@@ -41,6 +42,7 @@ export default function BlogArticleContent({
               content={post.content}
               heroImage={post.image}
               heroImageAlt={post.imageAlt}
+              layout={post.layout}
             />
 
             <div className="pt-8 border-t border-beige/50">

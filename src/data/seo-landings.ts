@@ -17,6 +17,7 @@ export interface SeoLanding {
   seoText: string[];
   faq: SeoFaqItem[];
   internalLinks: SeoInternalLink[];
+  relatedArticle?: SeoInternalLink;
   ctaTitle: string;
   ctaText: string;
 }
@@ -59,6 +60,10 @@ const baseLinks = {
   coffeeHoreca: { href: "/coffee-dlya-horeca", label: "Кофе для HoReCa" },
   arabicaOptom: { href: "/arabica-optom", label: "Арабика оптом" },
   espressoBlend: { href: "/espresso-blend", label: "Эспрессо blend" },
+  blogWholesaleCoffee: {
+    href: "/blog/optovaya-prodazha-kofe-belarus",
+    label: "Оптовая продажа кофе: как выбрать поставщика",
+  },
 };
 
 export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
@@ -76,6 +81,7 @@ export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
       "Склад и офис SELA находятся в Гродно. Мы доставляем заказы по Гродно и отправляем по всей Республике Беларусь. Для новых партнёров доступны консультации по ассортименту и тестовые заказы.",
       "Чтобы получить коммерческое предложение, оставьте заявку через форму на сайте или свяжитесь с нами по телефону. Менеджер подберёт позиции под ваш формат бизнеса и рассчитает оптовую цену.",
     ],
+    relatedArticle: baseLinks.blogWholesaleCoffee,
     faq: [
       {
         question: "Какой минимальный объём заказа кофе оптом?",
@@ -99,6 +105,7 @@ export const seoLandings: Record<SeoLandingSlug, SeoLanding> = {
       },
     ],
     internalLinks: [
+      baseLinks.blogWholesaleCoffee,
       baseLinks.coffeeOptomBelarus,
       baseLinks.coffeeHoreca,
       baseLinks.arabicaOptom,

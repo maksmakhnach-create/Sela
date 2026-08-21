@@ -34,6 +34,18 @@ export default function SeoLandingPage({ landing }: SeoLandingPageProps) {
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
+            {landing.relatedArticle && (
+              <div className="mt-8 pt-6 border-t border-beige/60">
+                <p className="text-sm text-text-muted mb-3">Читайте также в блоге</p>
+                <Link
+                  href={landing.relatedArticle.href}
+                  className="inline-flex items-center gap-2 font-display font-semibold text-primary hover:text-caramel-orange transition-colors"
+                >
+                  <span className="text-caramel-orange" aria-hidden>→</span>
+                  {landing.relatedArticle.label}
+                </Link>
+              </div>
+            )}
           </article>
         </AnimatedSection>
 

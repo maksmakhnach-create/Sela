@@ -10,7 +10,7 @@ export interface ParsedSection {
 }
 
 const IMAGE_MD_RE = /!\[([^\]]*)\]\(([^)]+)\)/;
-const CONCLUSION_RE = /^(итог|заключение)/i;
+const CONCLUSION_RE = /^(итог|заключение)|от sela$/i;
 const TIPS_RE = /совет/i;
 
 export const ARTICLE_SECTION_FALLBACK_IMAGES = [
@@ -19,6 +19,14 @@ export const ARTICLE_SECTION_FALLBACK_IMAGES = [
   "/images/brand-story/coffee-hero.webp",
   "/images/categories/new-products.webp",
   "/images/about/coffee-cup-hero.webp",
+] as const;
+
+export const ARTICLE_BUSINESS_FALLBACK_IMAGES = [
+  "/images/about/coffee-cafe-office.webp",
+  "/images/categories/coffee-beans.webp",
+  "/images/categories/bestsellers.webp",
+  "/images/categories/new-products.webp",
+  "/images/brand-story/coffee-hero.webp",
 ] as const;
 
 export function parseArticleContent(content: string): {
@@ -67,7 +75,7 @@ export function parseArticleContent(content: string): {
 
     return {
       id: slugifyHeading(title),
-      title: isConclusion ? "Заключение" : title,
+      title: /^(итог|заключение)/i.test(title) ? "Заключение" : title,
       body,
       image,
       isConclusion,
@@ -83,6 +91,7 @@ export function resolveSectionImage(
   index: number,
   fallbackAlt: string,
   heroImage: string,
+  layout: "lifestyle" | "business" = "lifestyle",
 ): { src: string; alt: string } {
   if (section.image) {
     return section.image;
@@ -92,10 +101,13 @@ export function resolveSectionImage(
     return { src: heroImage, alt: fallbackAlt };
   }
 
+  const pool =
+    layout === "business"
+      ? ARTICLE_BUSINESS_FALLBACK_IMAGES
+      : ARTICLE_SECTION_FALLBACK_IMAGES;
+
   return {
-    src: ARTICLE_SECTION_FALLBACK_IMAGES[
-      index % ARTICLE_SECTION_FALLBACK_IMAGES.length
-    ],
+    src: pool[index % pool.length],
     alt: section.title,
   };
 }

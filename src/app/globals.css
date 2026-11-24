@@ -8,6 +8,12 @@ html {
   overflow-x: hidden;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background-color: #fff8f0;
   color: #3d2b1f;
@@ -46,6 +52,17 @@ select {
     min-width: 44px;
   }
 
+  .product-modal-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+  }
+
+  .catalog-product-card {
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+  }
+
   .glass {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
@@ -82,7 +99,13 @@ select {
     animation: marquee-scroll 45s linear infinite;
   }
 
-  .marquee-pause:hover .marquee-track {
+  @media (hover: hover) and (pointer: fine) {
+    .marquee-pause:hover .marquee-track {
+      animation-play-state: paused;
+    }
+  }
+
+  .marquee-pause:active .marquee-track {
     animation-play-state: paused;
   }
 
@@ -326,5 +349,9 @@ select {
   .bean-float,
   .marquee-track {
     animation: none;
+  }
+
+  .catalog-product-card {
+    transform: none;
   }
 }

@@ -124,13 +124,13 @@ const solutions = [
 
 export default function BusinessSolutionsSection() {
   return (
-    <AnimatedSection className="pt-10 md:pt-14 pb-20 md:pb-32 bg-background">
+    <AnimatedSection className="pt-8 md:pt-14 pb-12 sm:pb-16 md:pb-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
         <div className="text-center mb-12 md:mb-16">
           <span className="text-caramel-orange text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
             SELA для бизнеса
           </span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary text-balance">
+          <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl text-primary text-balance">
             Решения для бизнеса
           </h2>
         </div>
@@ -147,7 +147,7 @@ export default function BusinessSolutionsSection() {
             >
               <Link
                 href={item.href}
-                className="group flex h-full aspect-square flex-col rounded-card glass-card p-5 sm:p-6 transition-all duration-300 hover:shadow-glow-orange hover:border-caramel-orange/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-caramel-orange/50"
+                className="group flex h-full min-h-0 lg:aspect-square flex-col rounded-card glass-card p-5 sm:p-6 transition-all duration-300 hover:shadow-glow-orange hover:border-caramel-orange/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-caramel-orange/50"
               >
                 <div
                   className="mb-5 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-orange-gradient text-white shadow-soft transition-transform duration-300 group-hover:scale-105 group-hover:shadow-glow"

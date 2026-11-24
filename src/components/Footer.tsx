@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import CookieSettingsButton from "@/components/legal/CookieSettingsButton";
 
 const companyLinks = [
   { href: "/about", label: "О компании" },
   { href: "/blog", label: "Блог" },
   { href: "/contacts", label: "Контакты" },
+  { href: "/help", label: "Помощь" },
   { href: "/", label: "Главная" },
 ];
 
@@ -23,7 +25,7 @@ const presenceLinks = [
 export default function Footer() {
   return (
     <footer className="bg-section-dark border-t border-beige/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 safe-px">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 md:py-20 safe-px">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12">
           <div className="lg:col-span-1">
             <Logo variant="dark" />
@@ -105,8 +107,29 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16 pt-8 border-t border-beige/80 text-center text-sm text-text-muted/70">
-          © 2026 SELA. Все права защищены.
+        <div className="mt-12 md:mt-16 pt-8 border-t border-beige/80 text-center text-sm text-text-muted/70 space-y-3">
+          <p>© 2026 SELA. Все права защищены.</p>
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-caramel-orange transition-colors duration-300"
+            >
+              Политика обработки персональных данных
+            </Link>
+            <Link
+              href="/personal-data-consent"
+              className="hover:text-caramel-orange transition-colors duration-300"
+            >
+              Согласие на обработку персональных данных
+            </Link>
+            <Link
+              href="/cookie-policy"
+              className="hover:text-caramel-orange transition-colors duration-300"
+            >
+              Политика Cookie
+            </Link>
+            <CookieSettingsButton />
+          </nav>
         </div>
       </div>
     </footer>

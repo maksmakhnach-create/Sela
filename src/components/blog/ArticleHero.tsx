@@ -37,8 +37,8 @@ export default function ArticleHero({
     <header
       className={`relative flex items-end overflow-hidden ${
         isBusiness
-          ? "min-h-[400px] sm:min-h-[460px] md:min-h-[520px] max-h-[80vh] border-b-4 border-caramel-orange/70"
-          : "min-h-[440px] sm:min-h-[500px] md:min-h-[560px] max-h-[85vh]"
+          ? "min-h-[320px] sm:min-h-[460px] md:min-h-[520px] md:max-h-[80vh] border-b-4 border-caramel-orange/70"
+          : "min-h-[340px] sm:min-h-[500px] md:min-h-[560px] md:max-h-[85vh]"
       }`}
     >
       <Image
@@ -98,8 +98,8 @@ export default function ArticleHero({
         <h1
           className={`font-display font-bold text-white mb-4 md:mb-5 text-balance leading-tight ${
             isBusiness
-              ? "text-3xl sm:text-4xl md:text-5xl max-w-5xl"
-              : "text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] max-w-4xl"
+              ? "text-2xl sm:text-4xl md:text-5xl max-w-5xl"
+              : "text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] max-w-4xl"
           }`}
         >
           {title}

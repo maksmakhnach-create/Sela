@@ -32,12 +32,12 @@ export default function WildberriesHero() {
 
   return (
     <motion.div
-      className="flex flex-col items-center text-center w-full max-w-[min(100%,520px)]"
+      className="flex flex-col items-center text-center w-full max-w-[min(100%,360px)] sm:max-w-[min(100%,420px)] lg:max-w-[min(100%,520px)]"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
     >
-      <div className="relative w-full max-w-[min(100%,480px)] aspect-[16/7]">
+      <div className="relative w-full max-w-[min(92%,280px)] sm:max-w-[min(100%,360px)] lg:max-w-[min(100%,480px)] aspect-[16/7]">
         <Image
           src="/images/wildberries-logo-nobg.png"
           alt="Wildberries"
@@ -48,8 +48,8 @@ export default function WildberriesHero() {
         />
       </div>
 
-      <div className="mt-6 sm:mt-8 w-full px-8 sm:px-10 py-4 sm:py-5 rounded-[2rem] border-2 border-[#B56A2E]/45 bg-white/55 backdrop-blur-sm">
-        <p className="text-base sm:text-xl font-semibold tracking-[0.2em] uppercase text-[#8B6347]">
+      <div className="mt-4 sm:mt-8 w-full px-4 sm:px-10 py-3 sm:py-5 rounded-[1.5rem] sm:rounded-[2rem] border-2 border-[#B56A2E]/45 bg-white/55 backdrop-blur-sm">
+        <p className="text-[0.8rem] sm:text-xl font-semibold tracking-[0.08em] sm:tracking-[0.2em] uppercase text-[#8B6347] text-balance">
           мы есть на WILDBERRIES
         </p>
       </div>
@@ -75,7 +75,7 @@ export default function WildberriesHero() {
         target="_blank"
         rel="noopener noreferrer"
         animate={pulse}
-        className="mt-4 sm:mt-5 inline-flex items-center justify-center w-full max-w-[min(100%,480px)] px-10 sm:px-12 py-4 sm:py-5 rounded-full bg-[#B56A2E] text-white font-semibold text-lg sm:text-xl tracking-wide shadow-[0_6px_24px_rgba(181,106,46,0.3)] hover:brightness-110 transition-[filter] duration-300 touch-target"
+        className="mt-3 sm:mt-5 inline-flex items-center justify-center w-full max-w-[min(100%,480px)] px-8 sm:px-12 py-3.5 sm:py-5 rounded-full bg-[#B56A2E] text-white font-semibold text-base sm:text-xl tracking-wide shadow-[0_6px_24px_rgba(181,106,46,0.3)] hover:brightness-110 transition-[filter] duration-300 touch-target"
       >
         нажми тут
       </motion.a>

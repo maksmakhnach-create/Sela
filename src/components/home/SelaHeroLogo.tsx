@@ -45,14 +45,14 @@ export default function SelaHeroLogo() {
 
   return (
     <motion.div
-      className="select-none"
+      className="select-none pt-8 sm:pt-10"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <div className="relative inline-block">
         <div
-          className="inline-flex items-end font-hero font-extrabold uppercase text-primary leading-[0.85] tracking-[0.04em] text-[clamp(3.75rem,13vw,10rem)] drop-shadow-[0_2px_0_rgba(61,43,31,0.08)]"
+          className="inline-flex items-end pr-[0.45em] sm:pr-[0.55em] font-hero font-extrabold uppercase text-primary leading-[0.85] tracking-[0.04em] text-[clamp(3.1rem,18vw,10rem)] drop-shadow-[0_2px_0_rgba(61,43,31,0.08)]"
           aria-hidden
         >
           <span className="relative inline-block">
@@ -81,7 +81,7 @@ export default function SelaHeroLogo() {
       </div>
 
       <h1
-        className="mt-4 sm:mt-5 font-display font-extrabold text-primary leading-[1.05] text-[clamp(1.85rem,4.8vw,3.5rem)] text-balance drop-shadow-[0_2px_0_rgba(61,43,31,0.06)]"
+        className="mt-3 sm:mt-5 font-display font-extrabold text-primary leading-[1.12] sm:leading-[1.05] text-[clamp(1.55rem,7.2vw,3.5rem)] text-balance drop-shadow-[0_2px_0_rgba(61,43,31,0.06)]"
       >
         <span className="bg-gradient-to-r from-[#3D2B1F] via-[#5E3D2A] to-[#B56A2E] bg-clip-text text-transparent">
           Кофе оптом в Беларуси

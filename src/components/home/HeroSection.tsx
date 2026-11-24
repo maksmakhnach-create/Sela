@@ -35,7 +35,7 @@ const scaleIn = {
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-[100dvh] flex flex-col overflow-x-hidden overflow-y-visible bg-warm-gradient"
+      className="relative min-h-0 lg:min-h-[100dvh] flex flex-col overflow-x-hidden overflow-y-visible bg-warm-gradient"
       aria-label="Кофе оптом в Беларуси"
     >
       {/* Vignette overlay for depth */}
@@ -52,15 +52,15 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px pt-24 sm:pt-28 md:pt-32">
-        <div className="relative grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-4 items-center w-full min-h-0 lg:min-h-[calc(100dvh-12rem)]">
+      <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px pt-24 sm:pt-28 md:pt-28 lg:pt-32">
+        <div className="relative grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-6 lg:gap-4 items-center w-full min-h-0 lg:min-h-[calc(100dvh-12rem)]">
           {/* ============ LEFT COLUMN: Text content ============ */}
-          <div className="flex flex-col max-w-3xl">
+          <div className="flex flex-col max-w-3xl min-w-0">
             <SelaHeroLogo />
 
             {/* Description */}
             <motion.p
-              className="text-base sm:text-lg leading-relaxed text-[#5E5147] max-w-lg mb-4 mt-5 sm:mt-6 text-balance"
+              className="text-[0.95rem] sm:text-lg leading-relaxed text-[#5E5147] max-w-lg mb-3 sm:mb-4 mt-3 sm:mt-6 text-balance"
               variants={slideLeft}
               initial="hidden"
               animate="visible"
@@ -72,7 +72,7 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.p
-              className="text-sm sm:text-base text-[#5E5147]/90 mb-6 sm:mb-8"
+              className="text-sm sm:text-base text-[#5E5147]/90 mb-4 sm:mb-8"
               variants={slideLeft}
               initial="hidden"
               animate="visible"
@@ -96,19 +96,19 @@ export default function HeroSection() {
             >
               <Link
                 href="/catalog"
-                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 bg-[#B56A2E] text-white font-semibold rounded-premium overflow-hidden transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_32px_rgba(181,106,46,0.3)] hover:scale-[1.03] active:scale-[0.98] touch-target"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#B56A2E] text-white font-semibold rounded-premium overflow-hidden transition-all duration-300 hover:brightness-110 hover:shadow-[0_8px_32px_rgba(181,106,46,0.3)] hover:scale-[1.03] active:scale-[0.98] touch-target"
               >
                 <span className="relative z-10">Каталог кофе оптом</span>
               </Link>
               <Link
                 href="/coffee-belarus"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-[#B56A2E]/40 text-[#B56A2E] font-medium rounded-premium bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[#B56A2E]/10 hover:border-[#B56A2E] hover:scale-[1.03] active:scale-[0.98] touch-target"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-[#B56A2E]/40 text-[#B56A2E] font-medium rounded-premium bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[#B56A2E]/10 hover:border-[#B56A2E] hover:scale-[1.03] active:scale-[0.98] touch-target"
               >
                 Кофе оптом в Беларуси
               </Link>
               <Link
                 href="/contacts"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 border border-[#B56A2E]/25 text-[#5E5147] font-medium rounded-premium bg-white/40 backdrop-blur-sm transition-all duration-300 hover:bg-white/70 hover:border-[#B56A2E]/40 hover:scale-[1.03] active:scale-[0.98] touch-target"
+                className="inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 border border-[#B56A2E]/25 text-[#5E5147] font-medium rounded-premium bg-white/40 backdrop-blur-sm transition-all duration-300 hover:bg-white/70 hover:border-[#B56A2E]/40 hover:scale-[1.03] active:scale-[0.98] touch-target"
               >
                 Связаться с нами
               </Link>
@@ -117,7 +117,7 @@ export default function HeroSection() {
 
           {/* ============ RIGHT COLUMN: Wildberries ============ */}
           <motion.div
-            className="relative flex items-center justify-center w-full min-h-[280px] sm:min-h-[420px] md:min-h-[480px] lg:min-h-[calc(100dvh-11rem)] overflow-visible -mx-1 sm:mx-0"
+            className="relative flex items-center justify-center w-full min-w-0 min-h-0 py-2 sm:py-4 md:py-0 lg:min-h-[calc(100dvh-11rem)] overflow-visible"
             variants={scaleIn}
             initial="hidden"
             animate="visible"

@@ -5,8 +5,8 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const topStats = [
-  { value: 370000, suffix: "+", label: "клиентов" },
-  { value: 95, suffix: "+", label: "товаров" },
+  { value: 500000, suffix: "+", label: "клиентов" },
+  { value: 120, suffix: "+", label: "товаров" },
 ];
 
 const qualityStat = {
@@ -148,10 +148,10 @@ export default function AboutSection() {
   const inView = useInView(statsRef, { once: true, margin: "-80px" });
 
   return (
-    <AnimatedSection className="py-20 md:py-32 bg-section-dark">
+    <AnimatedSection className="py-12 sm:py-16 md:py-32 bg-section-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="mt-6 sm:mt-10 lg:mt-14">
+          <div className="mt-0 sm:mt-6 lg:mt-14">
             <div className="relative aspect-[16/10] rounded-premium overflow-hidden shadow-card bg-white/40">
               <iframe
                 src={YANDEX_MAP_EMBED}
@@ -166,7 +166,7 @@ export default function AboutSection() {
               href={YANDEX_MAP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 block text-center sm:text-left text-primary font-semibold text-base sm:text-lg hover:text-accent transition-colors"
+              className="relative z-10 mt-4 block text-center sm:text-left text-primary font-semibold text-base sm:text-lg hover:text-accent transition-colors px-1"
             >
               Мы находимся тут: Ивана Лебедева 6
             </a>
@@ -176,7 +176,7 @@ export default function AboutSection() {
             <span className="text-caramel-orange text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
               О нас
             </span>
-            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-primary mb-6 text-balance">
+            <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl text-primary mb-4 sm:mb-6 text-balance">
               Кофе оптом в Беларуси от SELA
             </h2>
             <p className="text-text-muted text-base sm:text-lg leading-relaxed mb-6">
@@ -198,16 +198,16 @@ export default function AboutSection() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-[1fr_auto_1fr] gap-3 sm:gap-4 items-center">
-                <div className="flex justify-end pr-1 sm:pr-2">
+              <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-3 sm:gap-4 items-center">
+                <div className="hidden sm:flex justify-end pr-1 sm:pr-2">
                   <FloatingBeans />
                 </div>
 
-                <div className="w-[min(100%,220px)] sm:w-[min(100%,260px)]">
+                <div className="w-full sm:w-[min(100%,260px)]">
                   <StatCard {...qualityStat} inView={inView} />
                 </div>
 
-                <div className="flex justify-start pl-1 sm:pl-2">
+                <div className="hidden sm:flex justify-start pl-1 sm:pl-2">
                   <FloatingBeans mirror />
                 </div>
               </div>

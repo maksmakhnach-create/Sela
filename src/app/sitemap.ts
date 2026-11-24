@@ -16,6 +16,9 @@ const staticPages: Array<{
   { path: "/contacts", changeFrequency: "monthly", priority: 0.8 },
   { path: "/order", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/personal-data-consent", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/cookie-policy", changeFrequency: "yearly", priority: 0.4 },
   ...SEO_LANDING_SLUGS.map((slug) => ({
     path: `/${slug}`,
     changeFrequency: "monthly" as const,

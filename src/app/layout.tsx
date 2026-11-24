@@ -3,6 +3,7 @@ import { Inter, Manrope, Plus_Jakarta_Sans, Bebas_Neue } from "next/font/google"
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CookieConsent from "@/components/legal/CookieConsent";
 import { getSiteUrl } from "@/lib/site-url";
 
 export const viewport: Viewport = {
@@ -65,6 +66,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

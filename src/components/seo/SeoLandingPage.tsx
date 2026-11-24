@@ -11,7 +11,7 @@ interface SeoLandingPageProps {
 
 export default function SeoLandingPage({ landing }: SeoLandingPageProps) {
   return (
-    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-x-clip">
       <CatalogBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">

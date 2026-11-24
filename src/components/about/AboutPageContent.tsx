@@ -125,7 +125,7 @@ const stats = [
 
 const showcaseImages = {
   partner: "/images/about/coffee-cafe-office.webp",
-  mission: "/images/about/coffee-cup-hero.webp",
+  mission: "/images/about/coffee-brands-showcase.jpg",
 };
 
 const stagger = {
@@ -187,11 +187,13 @@ function CoffeeShowcase({
   alt,
   className = "",
   priority = false,
+  overlay = true,
 }: {
   src: string;
   alt: string;
   className?: string;
   priority?: boolean;
+  overlay?: boolean;
 }) {
   return (
     <motion.div
@@ -206,12 +208,16 @@ function CoffeeShowcase({
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-700 hover:scale-105"
+        className="object-cover object-center transition-transform duration-700 hover:scale-105"
         sizes="(max-width: 1024px) 100vw, 560px"
         priority={priority}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-white/5 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-br from-caramel/10 via-transparent to-gold/10 pointer-events-none" />
+      {overlay && (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-white/5 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-br from-caramel/10 via-transparent to-gold/10 pointer-events-none" />
+        </>
+      )}
     </motion.div>
   );
 }
@@ -251,7 +257,7 @@ function StatsSection() {
 
 export default function AboutPageContent() {
   return (
-    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-x-clip">
       <CatalogBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
@@ -356,8 +362,9 @@ export default function AboutPageContent() {
             <AnimatedSection direction="right" delay={0.1} as="div">
               <CoffeeShowcase
                 src={showcaseImages.mission}
-                alt="Премиальная чашка кофе"
+                alt="Ассортимент кофе SELA: Mövenpick, Dallmayr, Kimbo, Melitta и Lavazza"
                 className="lg:scale-[1.02]"
+                overlay={false}
               />
             </AnimatedSection>
           </div>

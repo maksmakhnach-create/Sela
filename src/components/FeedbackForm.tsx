@@ -2,10 +2,13 @@
 
 import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
+import PersonalDataConsentFields from "@/components/legal/PersonalDataConsentFields";
+import { PERSONAL_DATA_CONSENT } from "@/data/legal";
 
 interface FeedbackFormProps {
   onSubmitted?: () => void;
   size?: "default" | "large";
+  initialMessage?: string;
 }
 
 interface FormData {
@@ -31,6 +34,8 @@ const initialFormData: FormData = {
 };
 
 const UNP_ERROR = "Исправьте УНП: должно быть 9 цифр";
+const CONSENT_ERROR =
+  "Чтобы отправить заявку, установите отметку о согласии на обработку персональных данных.";
 
 const CONTACT_API =
   process.env.NEXT_PUBLIC_CONTACT_API ?? "/api/contact";
@@ -39,12 +44,21 @@ function isValidUnp(value: string): boolean {
   return /^\d{9}$/.test(value);
 }
 
-export default function FeedbackForm({ onSubmitted, size = "default" }: FeedbackFormProps) {
-  const [formData, setFormData] = useState<FormData>(initialFormData);
+export default function FeedbackForm({
+  onSubmitted,
+  size = "default",
+  initialMessage,
+}: FeedbackFormProps) {
+  const [formData, setFormData] = useState<FormData>({
+    ...initialFormData,
+    message: initialMessage ?? "",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [unpError, setUnpError] = useState("");
+  const [consentAccepted, setConsentAccepted] = useState(false);
+  const [consentError, setConsentError] = useState("");
   const isLarge = size === "large";
 
   const handleChange = (
@@ -77,9 +91,15 @@ export default function FeedbackForm({ onSubmitted, size = "default" }: Feedback
     event.preventDefault();
     setError("");
     setUnpError("");
+    setConsentError("");
 
     if (!isValidUnp(formData.unp)) {
       setUnpError(UNP_ERROR);
+      return;
+    }
+
+    if (!consentAccepted) {
+      setConsentError(CONSENT_ERROR);
       return;
     }
 
@@ -89,7 +109,13 @@ export default function FeedbackForm({ onSubmitted, size = "default" }: Feedback
       const response = await fetch(CONTACT_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          personalDataConsent: true,
+          consentVersion: PERSONAL_DATA_CONSENT.version,
+          consentDocumentId: PERSONAL_DATA_CONSENT.documentId,
+          consentAcceptedAt: new Date().toISOString(),
+        }),
       });
 
       const result = await response.json();
@@ -271,7 +297,7 @@ export default function FeedbackForm({ onSubmitted, size = "default" }: Feedback
 
       <fieldset className="space-y-3">
         <legend className={labelClass}>Куда вам удобно получить прайс-лист</legend>
-        <div className={`grid sm:grid-cols-2 gap-3 ${isLarge ? "gap-4" : ""}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 ${isLarge ? "gap-4" : ""}`}>
           {[
             { value: "email", label: "Электронная почта" },
             { value: "telegram", label: "Telegram" },
@@ -323,6 +349,16 @@ export default function FeedbackForm({ onSubmitted, size = "default" }: Feedback
           {error}
         </p>
       )}
+
+      <PersonalDataConsentFields
+        checked={consentAccepted}
+        disabled={loading}
+        error={consentError}
+        onChange={(checked) => {
+          setConsentAccepted(checked);
+          if (checked) setConsentError("");
+        }}
+      />
 
       <button
         type="submit"

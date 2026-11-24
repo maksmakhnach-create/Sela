@@ -59,7 +59,7 @@ export default function BlogListing({
   }, [posts, search, category, sort]);
 
   return (
-    <section id="blog-listing" className="pt-24 md:pt-32 pb-20 md:pb-28">
+    <section id="blog-listing" className="pt-24 md:pt-32 pb-14 sm:pb-20 md:pb-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
         <div className="glass-card rounded-premium p-5 sm:p-6 mb-8">
           <h1 className="font-display font-bold text-3xl sm:text-4xl text-primary mb-3">
@@ -90,7 +90,7 @@ export default function BlogListing({
                   key={item.id}
                   type="button"
                   onClick={() => setCategory(item.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`rounded-full px-4 py-2.5 text-sm font-medium transition-colors touch-target ${
                     category === item.id
                       ? "bg-orange-gradient text-white shadow-soft"
                       : "bg-white/80 text-primary hover:bg-cream"

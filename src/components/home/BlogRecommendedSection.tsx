@@ -15,7 +15,7 @@ export default function BlogRecommendedSection({
   if (posts.length === 0) return null;
 
   return (
-    <AnimatedSection className="py-20 md:py-28 bg-section-dark">
+    <AnimatedSection className="py-12 sm:py-16 md:py-28 bg-section-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-12">
           <div>

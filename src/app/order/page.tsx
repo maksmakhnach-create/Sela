@@ -1,12 +1,24 @@
 "use client";
 
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import AnimatedSection from "@/components/AnimatedSection";
 import CatalogBackground from "@/components/catalog/CatalogBackground";
 import FeedbackForm from "@/components/FeedbackForm";
 
+function OrderForm() {
+  const searchParams = useSearchParams();
+  const product = searchParams.get("product")?.trim() ?? "";
+  const initialMessage = product
+    ? `Прошу прислать оптовый прайс по товару: ${product}.`
+    : undefined;
+
+  return <FeedbackForm size="large" initialMessage={initialMessage} />;
+}
+
 export default function OrderPage() {
   return (
-    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-x-clip">
       <CatalogBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
@@ -20,11 +32,13 @@ export default function OrderPage() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          <div className="bg-white rounded-card p-6 sm:p-10 md:p-12 lg:p-14 shadow-card">
+          <div className="bg-white rounded-card p-5 sm:p-10 md:p-12 lg:p-14 shadow-card">
             <h2 className="font-display text-2xl sm:text-3xl text-primary mb-8 md:mb-10">
               Форма обратной связи
             </h2>
-            <FeedbackForm size="large" />
+            <Suspense fallback={null}>
+              <OrderForm />
+            </Suspense>
           </div>
         </AnimatedSection>
       </div>

@@ -43,7 +43,7 @@ const YANDEX_MAP_EMBED =
 
 export default function ContactsPage() {
   return (
-    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <div className="relative bg-primary min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 overflow-x-clip">
       <CatalogBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 safe-px">
@@ -167,7 +167,7 @@ export default function ContactsPage() {
                   {socialLinks.map((social) => (
                     <div
                       key={social.name}
-                      className="flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-beige/35 border border-beige/80"
+                      className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-beige/35 border border-beige/80"
                     >
                       <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-white flex items-center justify-center flex-shrink-0 shadow-soft">
                         <Image
